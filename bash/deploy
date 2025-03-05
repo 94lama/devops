@@ -1,0 +1,26 @@
+#!/bin/sh
+
+echo Process start;
+# Build
+yarn run build &&
+# Files compression
+tar -cvzf distnew.tgz dist
+
+# Use options to decide where to deploy the file
+# ***********************
+# f: frontend
+# b: backend
+# g: flag
+# l: landing page
+# *******************
+
+while getopts "fb" opt; do
+  case $opt in 
+    f) echo Deploying in the frontend server...;
+       scp distnew.tgz ubuntu@127.0.0.1:/var/www/app;
+       ssh -t ubuntu@127.0.0.1 "cd /var/www/app; bash --login" ;;
+    b) echo Deploying in the backend server...;
+       scp distnew.tgz ubuntu@127.0.0.1:/var/www/api.io ;;
+    *) echo $opt ;;
+  esac
+done;
