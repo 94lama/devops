@@ -1,0 +1,5 @@
+#!bin/sh
+
+python - << EOF
+$1.py
+EOF
