@@ -2,7 +2,7 @@
 
 import { CoreMessage } from 'ai';
 import { useState } from 'react';
-import { completion, test } from '../api/chat/_requests';
+import { completion } from '../api/chat/_requests';
 import { ChatCompletionMessage } from 'openai/resources/index.mjs';
 
 export default function Chat() {
@@ -45,13 +45,12 @@ export default function Chat() {
                             ]);
 
                             const response = await completion(input);
+                            setInput('');
 
-                            response.choices[0]?.message && setMessages(currentMessages => [
+                            if(response && response.choices[0]) setMessages(currentMessages => [
                                 ...currentMessages,
                                 response.choices[0].message
                             ]);
-
-                            setInput('');
                         }
                     }}
                 />

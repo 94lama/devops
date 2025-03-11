@@ -1,0 +1,29 @@
+services:
+  spring:
+    build: ./springboot
+    volumes:
+      - ./springboot:/var/www
+    restart: always
+    ports:
+      - "8000:8080"
+    networks:
+      - backend
+
+  chatbot:
+    build: #./chatbot
+      context: ./chatbot
+      target: runner
+    volumes:
+      - ./chatbot:/app
+    #command: npm start
+    ports:
+      - "3000:3000"
+    #environment:
+    #  NODE_ENV: production
+    restart: always
+    networks:
+      - frontend
+
+networks:
+  frontend: {}
+  backend: {}

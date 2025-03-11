@@ -1,8 +1,7 @@
 "use server";
 
-import { CoreMessage } from "ai";
 import OpenAI from "openai";
-import { ChatCompletion, ChatCompletionContentPartText } from "openai/resources/index.mjs";
+import { ChatCompletion } from "openai/resources/index.mjs";
 
 const client = new OpenAI({
   organization: process.env.ORGANIZATION,
