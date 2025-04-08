@@ -1,0 +1,3 @@
+[submodule "docker/chatbot"]
+	path = docker/chatbot
+	url = git@github.com:94lama/chatbot.git
