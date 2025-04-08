@@ -1,3 +1,6 @@
 [submodule "docker/chatbot"]
 	path = docker/chatbot
 	url = git@github.com:94lama/chatbot.git
+[submodule "docker/springboot"]
+	path = docker/springboot
+	url = https://github.com/94lama/springboot.git
