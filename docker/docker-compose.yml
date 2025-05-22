@@ -10,12 +10,9 @@ services:
       - backend
 
   chatbot:
-    build: #./chatbot
-      context: ./chatbot
-      target: runner
+    build: ./chatbot
     volumes:
       - ./chatbot:/app
-    #command: npm start
     ports:
       - "3000:3000"
     #environment:
