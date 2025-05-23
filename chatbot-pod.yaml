@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-chatbot-pod
+  labels:
+    app: chatbot
+spec:
+  containers:
+  - name: chatbot
+    image: docker-chatbot
+    ports:
+    - containerPort: 3000
